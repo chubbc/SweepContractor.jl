@@ -224,3 +224,4 @@ function sweep_contract!(TN::TensorNetwork, χ::Int, τ::Int;
     h = Int(floor(log2(abs(res))));
     return (res/exp2(h),resexp+h);
 end
+                                    
