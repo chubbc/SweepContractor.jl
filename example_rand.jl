@@ -1,4 +1,3 @@
-using Pkg; Pkg.add(url="https://github.com/chubbc/SweepContractor.jl")
 using SweepContractor
 
 n=8; d=2
