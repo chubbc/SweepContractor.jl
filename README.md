@@ -4,7 +4,7 @@ A Julia package for the contraction of tensor networks using the sweep-line-base
 
 Below I have provided some examples of `SweepContractor.jl` at work. Scripts with working versions of each of these examples are also included in the package. For more detailed documentation consult help pages by using `?` in the Julia REPL.
 
-Feel free to contact me with any comments, questions, or suggestions at [`github@christopherchubb.com`](mailto:github@christopherchubb.com).
+Feel free to contact me with any comments, questions, or suggestions at [github@christopherchubb.com](mailto:github@christopherchubb.com). If you use `SweepContractor.jl` for research, please cite either [arXiv:2101.04125](https://arxiv.org/abs/2101.04125) and/or [doi:10.5281/zenodo.5566842](http://dx.doi.org/10.5281/zenodo.5566842).
 
 ## Example 1: ABCD
 
@@ -68,7 +68,7 @@ value = sweep_contract!(LTN,χ,τ; fast=true)
 ## Example 3: 2d grid (periodic)
 But what about contracting a 2d grid with *periodic* boundary conditions? Well, this contains a small number of long-range bonds. Thankfully, however `SweepContractor.jl` can run on such graphs by first planarising them.
 
-We might start by taking the above code and directly changing the boundary conditions, but this will result in the boundary edges overlapping other edges in the network (e.g. the edge from `(1,1)` to `(1,2)` will overlap the edge from `(1,1)` to `(L,1)`), which the contractor cannot deal with. As a crude workaround we just slightly shift the position of each tensor:
+We might start by taking the above code and directly changing the boundary conditions, but this will result in the boundary edges overlapping other edges in the network (e.g. the edge from `(1,1)` to `(2,1)` will overlap the edge from `(1,1)` to `(L,1)`), which the contractor cannot deal with. As a crude workaround we just randomly shift the position of each tensor by a small amount:
 ```julia
 LTN = LabelledTensorNetwork{Tuple{Int,Int}}();
 for i∈1:L, j∈1:L
