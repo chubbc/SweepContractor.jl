@@ -16,9 +16,13 @@ where each tensor is defined
 
 >![ABCD2](ABCD2.png)
 
-First we start by including `SweepContractor.jl`, which we achieve by running
+First we need to install `SweepContract.jl`, which we do by running
 ```julia
-using Pkg; Pkg.add(url="https://github.com/chubbc/SweepContractor.jl")
+import Pkg
+Pkg.add("SweepContractor")
+```
+Now that it's install we can use the package by running
+```julia
 using SweepContractor
 ```
 Next we need to define our network. We do this by initialising a `LabelledTensorNetwork`, which allows us to have a tensor network with elements labelled by an arbitrary type, in our case `Char`.
