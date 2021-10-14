@@ -23,7 +23,7 @@ First we need to install `SweepContract.jl`, which we do by running
 import Pkg
 Pkg.add("SweepContractor")
 ```
-Now that it's install we can use the package by running
+Now that it's installed we can use the package by running
 ```julia
 using SweepContractor
 ```
