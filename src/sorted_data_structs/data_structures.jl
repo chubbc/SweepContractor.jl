@@ -6,3 +6,5 @@ abstract type AbstractSemiToken end
 struct IntSemiToken <: AbstractSemiToken
     address::Int
 end
+
+using DataStructures: DataStructures, PriorityQueue

@@ -109,7 +109,7 @@ end
 function search_node(tree::AVLTree{K}, d::K) where K
     prev = nothing
     node = tree.root
-    while node != nothing && node.data != nothing && !eq(tree.ord, node.data, d)
+    while node != nothing && node.data != nothing && !DataStructures.eq(tree.ord, node.data, d)
 
         prev = node
         if lt(tree.ord, d, node.data)
@@ -125,7 +125,7 @@ end
 function Base.haskey(tree::AVLTree{K}, d::K) where K
     (tree.root == nothing) && return false
     node = search_node(tree, d)
-    return eq(tree.ord, node.data, d)
+    return DataStructures.eq(tree.ord, node.data, d)
 end
 
 Base.in(key, tree::AVLTree) = haskey(tree, key)
@@ -242,7 +242,7 @@ function sorted_rank(tree::AVLTree{K}, key::K) where K
     !haskey(tree, key) && throw(KeyError(key))
     node = tree.root
     rank = 0
-    while !eq(tree.ord, node.data, key)
+    while !DataStructures.eq(tree.ord, node.data, key)
         if lt(tree.ord, node.data, key)
             rank += (1 + get_subsize(node.leftChild))
             node = node.rightChild

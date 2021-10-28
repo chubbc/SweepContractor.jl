@@ -2,7 +2,7 @@
 
 A Julia package for the contraction of tensor networks using the sweep-line-based contraction algorithm laid out in the paper [General tensor network decoding of 2D Pauli codes](https://arxiv.org/abs/2101.04125). This algorithm is primarily designed for two-dimensional tensor networks but contains graph manipulation tools that allow it to function for generic tensor networks.
 
-![Sweep-line anim](anim.gif)
+![Sweep-line anim](resources/anim.gif)
 
 Below I have provided some examples of `SweepContractor.jl` at work. Scripts with working versions of each of these examples are also included in the package. For more detailed documentation consult help pages by using `?` in the Julia REPL.
 
@@ -12,11 +12,11 @@ Feel free to contact me with any comments, questions, or suggestions at [github@
 
 Consider the following four tensor networks, taken from the tensor network review [Hand-waving and Interpretive Dance](https://arxiv.org/abs/1603.03039):
 
->![ABCD1](ABCD1.png),
+>![ABCD1](resources/ABCD1.png),
 
 where each tensor is defined
 
->![ABCD2](ABCD2.png)
+>![ABCD2](resources/ABCD2.png)
 
 First we need to install `SweepContract.jl`, which we do by running
 ```julia

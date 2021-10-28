@@ -109,7 +109,7 @@ function planarise!(TN::TensorNetwork)
             intersectpos(TN, L, R)...
         )
         # Add the new tensor to the queue of points that need to be analysed
-        enqueue!(Q, len, (TN[len].y,TN[len].x));
+        DataStructures.enqueue!(Q, len, (TN[len].y,TN[len].x));
         # Disconnect all of the relevant tensors, connecting them through the swap
         replace!(TN[L.lo].adj, L.hi=>len)
         replace!(TN[L.hi].adj, L.lo=>len)
@@ -130,11 +130,11 @@ function planarise!(TN::TensorNetwork)
     Q = PriorityQueue{Int64,Tuple{Float64,Float64}}()
     # Populate the queue
     for l ∈ eachindex(TN)
-        enqueue!(Q, l, (TN[l].y,TN[l].x))
+        DataStructures.enqueue!(Q, l, (TN[l].y,TN[l].x))
     end
     # Loop over points in the queue until empty
     while !isempty(Q)
-        q = dequeue!(Q)
+        q = DataStructures.dequeue!(Q)
         # Loop over all 'downward' edges of q
         for n ∈ TN[q].adj
             TN[n]>TN[q] && continue
@@ -176,7 +176,7 @@ end
 # respectively. As with planarise! this algorithm is also based on a Bentley-Ottmann-style
 # sweepline algorithm. sweep. Instead of looking for intersections, this looks for tensors
 # with no 'downard' edges (other than the bottommost tensor), and connects them to a tensor
-# at a Steiner point immediate to the left. 
+# at a Steiner point immediate to the left.
 function connect!(TN::TensorNetwork)
     len = length(TN)
 
@@ -186,10 +186,10 @@ function connect!(TN::TensorNetwork)
     B::AVLTree{edge} = AVLTree{edge}(Lt((a,b)->edgelt(TN,a,b)))
     Q = PriorityQueue{Int64,Tuple{Float64,Float64}}()
     for l ∈ eachindex(TN)
-        enqueue!(Q, l, (TN[l].y,TN[l].x));
+        DataStructures.enqueue!(Q, l, (TN[l].y,TN[l].x));
     end
     while !isempty(Q)
-        q = dequeue!(Q)
+        q = DataStructures.dequeue!(Q)
         # Consider only points where are not sweep-connected
         steiner = q>1
         for n ∈ TN[q].adj
