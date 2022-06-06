@@ -129,8 +129,6 @@ function sweep_contract!(TN::TensorNetwork, χ::Int, τ::Int;
 
     sort!(TN)
 
-    N = length(TN)
-
     resexp = 0
     count = 0
 
