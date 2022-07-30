@@ -213,7 +213,7 @@ function connect!(TN::TensorNetwork)
             end
             if TN[L.lo].y == TN[q].y
                 # If there is a tensor at the steiner point, directly connect them
-                addedge!(FTN, L.lo, q)
+                addedge!(TN, L.lo, q)
             else
                 # Otherwise include a new point
                 Al = TN[L.hi].y - TN[L.lo].y
