@@ -1,7 +1,7 @@
 name = "SweepContractor"
 uuid = "75a5deae-e917-4509-af32-a989148c8d5f"
 authors = ["Christopher Chubb <github@christopherchubb.com>"]
-version = "0.1.6"
+version = "0.1.7"
 
 [deps]
 DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
