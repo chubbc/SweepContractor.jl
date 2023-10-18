@@ -12,11 +12,11 @@ Feel free to contact me with any comments, questions, or suggestions at [github@
 
 Consider the following four tensor networks, taken from the tensor network review [Hand-waving and Interpretive Dance](https://arxiv.org/abs/1603.03039):
 
->![ABCD1](resources/ABCD1.png),
+![ABCD1](resources/ABCD1.png),
 
 where each tensor is defined
 
->![ABCD2](resources/ABCD2.png)
+![ABCD2](resources/ABCD2.png)
 
 First we need to install `SweepContract.jl`, which we do by running
 ```julia
